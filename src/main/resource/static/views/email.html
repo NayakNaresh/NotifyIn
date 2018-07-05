@@ -1,0 +1,78 @@
+<div class="section">
+	<h3>{{headingTitle}}</h3>
+	<form>
+		<div class="container" ng-init="showPreview=false;">
+			<label><b>Client:</b></label> <select id="select3"
+				class="form-control" ng-model="email.client"
+				ng-change="fetchModules()"
+				ng-options="client as client.clientName for client in clients"
+				required></select> <br />
+			<br /> <label><b>Module:</b></label> <select id="select3"
+				class="form-control" ng-model="email.moduleDetail['id']"
+				ng-options="module.id as module.moduleName for module in modules"
+				required></select> <br />
+			<br /> <label><b>Template</b></label> <input type="text"
+				placeholder="Enter Email Template Name"
+				ng-model="email.templateName" name="template" required> <br />
+			<br /> <label><b>Template Text</b></label>
+			<div ng-hide="showPreview" id="htmlText">
+				<textarea rows="4" cols="50" placeholder="Enter Email Template Text"
+					ng-model="email.templateText">
+                 </textarea>
+			</div>
+			<div ng-show="showPreview" id="htmlPreview"
+				ng-bind-html="myHtmlPreview" class="ng-binding"
+				style="width: 520px; height: auto; padding: 0px 13px; border: solid 1px #dedede; margin: 5px 0px;"></div>
+
+		</div>
+		<button type="button"
+			ng-click="previewEmail(email);showPreview=false;">Html</button>
+
+
+		<button type="button" ng-click="previewEmail(email);showPreview=true;">Preview</button>
+
+		<br />
+		<br />
+		<!--  <p ng-bind-html="myHTML"></p> -->
+		<br />
+		<br />
+
+
+		<div class="clearfix">
+			<button type="button" class="cancelbtn">Cancel</button>
+			<button type="button" ng-click="addEmail(email)">Submit</button>
+		</div>
+</div>
+</form>
+<!-- <div style="margin-top: 26px;">
+		
+		
+		 <table ng-repeat="client in clients">
+      <thead ng-hide="$index">
+        <tr>
+          <th>Client</th>
+                        <th>Module</th>
+                        <th>Template Name</th>
+                        <th>template Text</th>
+                        <th>Status</th>
+                         <th>Created By</th>
+                         <th>Created Date</th>
+                        <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="module in client.moduleDetails">
+        <tr ng-repeat="sms in module.smsTemplates">
+          <td>{{client.clientName}}</td>
+          <td>{{module.moduleName}}</td>
+          <td>{{sms.templateName}}</td>
+          <td>{{sms.templateText}}</td>
+          <td>Naresh</td>
+          <td>{{client.createdTime}}</td>
+          <td><button ng-click="edit(unit)">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+    </div> -->
+
+
+</div>

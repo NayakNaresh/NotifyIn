@@ -1,0 +1,111 @@
+<div class="section">
+	<h3>{{headingTitle}}</h3>
+		<form>
+			<div class="container">
+	            <label><b>Client:</b></label>
+	            <select id="select3"  class="form-control" ng-model="module.clientDetail"  ng-options="client as client.clientName for client in clients" required></select>
+	           <br />
+				<br /> <label><b>Module</b></label> <input type="text" ng-model="module.moduleName"
+					placeholder="Enter Module Name" name="template" required>
+
+				<br />
+				<br /> <label><b>Module Description</b></label>
+				<input type="text" ng-model="module.description" placeholder="Enter Description">
+				<br />
+				<br />
+
+
+				<div class="clearfix">
+					<button type="button">Cancel</button>
+					<button type="button" ng-click="addModule(module)">Submit</button>
+				</div>
+			</div>
+		</form>
+		<div style="margin-top: 26px;">
+		
+		
+		 <table ng-repeat="client in clients">
+      <thead ng-hide="$index">
+        <tr>
+          <th>Client</th>
+                        <th>Module</th>
+                        <!-- <th>Status</th> -->
+                         <th>Created By</th>
+                         <th>Created Date</th>
+                        <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="module in client.moduleDetails">
+        <tr>
+          <td>{{client.clientName}}</td>
+          <td>{{module.moduleName}}</td>
+          <td>Naresh</td>
+          <td>{{client.createdTime}}</td>
+          <td><button ng-click="edit(unit)">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+		
+		
+            <!-- <table>
+             <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th>Module</th>
+                        <th>Status</th>
+                         <th>Created By</th>
+                         <th>Created Date</th>
+                        <th>Actions</th>
+                    </tr>
+                
+                </thead>
+    <tbody ng-repeat="client in clients">
+      <tr ng-repeat="module in client.moduleDetails">
+        <td ng-if="$index == 0" rowspan="{{client.moduleDetails.length}}">{{client.clientName}}</td>
+          <td>
+                         <span>{{module.moduleName}}</span>
+                          </td>
+         <td>
+                         <span>{{module.description}}</span>
+                          </td>
+                         <td>
+                          <span>Naresh</span>
+                        </td>
+                        <td>
+                          <span>{{client.createdTime}}</span>
+                        </td>
+                        <td>
+                        	 <span><button type="button" style ="padding: 3px 8px; " class="btn btn-primary" data-toggle="modal" ng-click="busttonsDisplay('edit',item)"  data-target="#exampleModal" data-whatever="@mdo">Edit</button></span>
+                             <span> <button style ="background-color: #66e866;padding: 3px 8px; " class = "btn" type="submit" ng-hide="item.isActive" ng-click="hctrl.inActiveHybrid(item)" >Active</button></span>
+                             <span> <button style ="background-color: #ef9e9e; padding: 3px 8px;" class = "btn" type="submit" ng-show="item.isActive" ng-click="hctrl.inActiveHybrid(item)">Inactive</button></span>
+                        </td>
+      </tr>
+    </tbody>
+                
+                <tbody ng-repeat="client in clients">
+                     <td>
+                           <span>{{client.clientName}}</span>
+                        </td>
+                        <tr class="sub" ng-repeat="module in client.moduleDetails">
+                        <td>
+                           <span>{{module.moduleName}}</span>
+                        </td>
+                         <td>
+                         <span>{{module.description}}</span>
+                          </td>
+                         <td>
+                          <span>Naresh</span>
+                        </td>
+                        <td>
+                          <span>{{client.createdTime}}</span>
+                        </td>
+                        <td>
+                        	 <span><button type="button" style ="padding: 3px 8px; " class="btn btn-primary" data-toggle="modal" ng-click="busttonsDisplay('edit',item)"  data-target="#exampleModal" data-whatever="@mdo">Edit</button></span>
+                             <span> <button style ="background-color: #66e866;padding: 3px 8px; " class = "btn" type="submit" ng-hide="item.isActive" ng-click="hctrl.inActiveHybrid(item)" >Active</button></span>
+                             <span> <button style ="background-color: #ef9e9e; padding: 3px 8px;" class = "btn" type="submit" ng-show="item.isActive" ng-click="hctrl.inActiveHybrid(item)">Inactive</button></span>
+                        </td>
+                        </tr>
+               </tbody>
+            </table>
+ -->            </div>
+</div>
